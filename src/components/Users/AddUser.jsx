@@ -2,6 +2,7 @@ import { useState } from 'react';
 import styles from './AddUser.module.css';
 import BaseCard from '../UI/BaseCard';
 import BaseButton from '../UI/BaseButton';
+import BaseModal from '../UI/BaseModal';
 
 
 const AddUser = (props) => {
@@ -35,25 +36,27 @@ const AddUser = (props) => {
     }
 
     return (
-        <BaseCard className={styles.input}>
-            <form onSubmit={addUserHandler}>
-                <label htmlFor="username">Username:</label>
-                <input 
-                    type="text" 
-                    id="username" 
-                    value={enteredUsername} 
-                    onChange={usernameChangeHandler} 
-                />
-                <label htmlFor="age">Age: (Years)</label>
-                <input 
-                    type="number" 
-                    id="age" 
-                    value={enteredAge} 
-                    onChange={ageChangeHandler} 
-                />
-                <BaseButton type="submit">Add User</BaseButton>
-            </form>
-        </BaseCard>
+        <BaseModal>
+            <BaseCard className={styles.input}>
+                <form onSubmit={addUserHandler}>
+                    <label htmlFor="username">Username:</label>
+                        <input 
+                        type="text" 
+                        id="username" 
+                        value={enteredUsername} 
+                        onChange={usernameChangeHandler} 
+                        />
+                    <label htmlFor="age">Age: (Years)</label>
+                        <input 
+                        type="number" 
+                        id="age" 
+                        value={enteredAge} 
+                        onChange={ageChangeHandler} 
+                        />
+                        <BaseButton type="submit">Add User</BaseButton>
+                </form>
+            </BaseCard>
+        </BaseModal>
     );
 }
 
